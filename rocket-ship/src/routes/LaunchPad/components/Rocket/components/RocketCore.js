@@ -11,17 +11,17 @@ function timeToPositionPercent(startTime) {
 
   if (timeDiff >= MS_TO_TAKEOFF) { return FINAL_POSITION_BOTTOM_VAL; }
 
-  return `calc(300px + ${((timeDiff / MS_TO_TAKEOFF) * 100).toFixed(0)}%)`;
+  return `calc(300px + ${((timeDiff / MS_TO_TAKEOFF) * 400).toFixed(0)}%)`;
 }
 
 function generateEmptyListEls(quantity) {
   return [...Array(quantity)].map(() => <li />);
 }
 
-export default function RocketCore({ initialLaunchTime }) {
+export default function RocketCore({ initialLaunchTime, takeoff }) {
   return (
     <>
-      <div className="rocket" style={{ bottom: timeToPositionPercent(initialLaunchTime) }}>
+      <div className="rocket" onClick={takeoff} style={{ bottom: timeToPositionPercent(initialLaunchTime) }}>
         <div className="rocket__body">
           <div className="rocket__body__main"/>
           <div className="rocket__body__fin rocket__body__fin__left"/>

@@ -1,10 +1,10 @@
 import React, { useState, Component } from 'react';
 import RocketCore from './RocketCore';
 
-export function FunctionalRocket() {
+export function FunctionalRocket({takeoff}) {
   const [initialLaunchTime] = useState(Date.now());
 
-  return <RocketCore initialLaunchTime={initialLaunchTime} />;
+  return <RocketCore takeoff={takeoff} initialLaunchTime={initialLaunchTime} />;
 }
 
 export class ClassRocket extends Component {
